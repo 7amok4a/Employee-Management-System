@@ -21,10 +21,10 @@ import com.employee_management_system.models.Employee;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/employees")
+@RequestMapping("/api/v1/employees")
 public class EmployeeController {
 
-    @GetMapping
+    @GetMapping("/hello")
     public String hello() {
         return "hello" ; 
     }
