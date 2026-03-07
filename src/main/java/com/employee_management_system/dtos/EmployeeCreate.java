@@ -1,7 +1,6 @@
 package com.employee_management_system.dtos;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -22,10 +21,10 @@ public record EmployeeCreate(
 
     @NotNull(message = "Email is required")
     @Pattern(
-        regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$" , 
-        message = "invailid Email"
+        regexp = "^\\+?[0-9]{10,15}$" , 
+        message = "Invailed phone number format"
     )
-    String email , 
+    String phoneNumber , 
 
 
 
@@ -38,16 +37,15 @@ public record EmployeeCreate(
     LocalDate hireDate , 
 
     @NotNull(message = "Phone number is required")
-    // @Pattern(
-    //     regexp = "^\\+?[0-9]{10,15}$" , 
-    //     message = "Invailed phone number format"
-    // )
-    @Email(message = "Invailed Email")
-    String phoneNumber  , 
+    @Email(
+        message = "Invailed Email" , 
+        regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+    )
+    String email 
 
 
-    @NotNull(message = "Department Id is required")
-    UUID departmentId
+    // @NotNull(message = "Department Id is required")
+    // UUID departmentId
 
 ) {
 

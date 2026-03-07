@@ -1,0 +1,15 @@
+info:
+  name: deleteEmployee
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: http://localhost:8080/api/v1/employees/72bd4042-dc51-4112-a2df-d65a0f8fa83a
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

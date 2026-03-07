@@ -1,0 +1,25 @@
+info:
+  name: updateEmployee
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: http://localhost:8080/api/v1/employees/58b5990e-1792-4545-ad39-b749bd824177
+  body:
+    type: json
+    data: |-
+      {
+        "firstName" : "ahmed12" ,  
+        "email" : "ahmed@gmail.com" , 
+        "lastName" : "matter" , 
+        "phoneNumber" : "+0123456749" , 
+        "position" : "Java Engineer" 
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

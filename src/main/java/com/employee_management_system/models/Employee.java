@@ -48,6 +48,7 @@ public class Employee {
     @Column(name = "position" , nullable = false)
     private String position ; 
     
-    private UUID departmentId ; 
+    @Column(name = "department_id" ,nullable = false)
+    private UUID departmentId = UUID.randomUUID(); 
 
 }

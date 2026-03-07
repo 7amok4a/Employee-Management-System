@@ -2,6 +2,7 @@ package com.employee_management_system.shared;
 
 import java.util.List;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -33,6 +34,14 @@ public class GlobalExceptionResponse {
     public ResponseEntity<GlobalResponse<?>> handleValidationException(MethodArgumentNotValidException ex) {
         var errors = ex.getBindingResult().getFieldErrors().stream()
             .map(e -> new ErrorItem(e.getField() + " " + e.getDefaultMessage())).toList();  
+        return new ResponseEntity<>(new GlobalResponse<>(errors) , HttpStatus.BAD_REQUEST) ;
+         
+    }
+
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<GlobalResponse<?>> handelDuplicateEntity(DataIntegrityViolationException ex) {
+        var errors = ex.getRootCause().getMessage() ; 
         return new ResponseEntity<>(new GlobalResponse<>(errors) , HttpStatus.BAD_REQUEST) ; 
     }
 }

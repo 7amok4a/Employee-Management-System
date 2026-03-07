@@ -1,0 +1,26 @@
+info:
+  name: createEmployee
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:8080/api/v1/employees
+  body:
+    type: json
+    data: |-
+      {
+        "firstName" : "ahmed" , 
+        "lastName" : "matter" , 
+        "position" : "Software Engineer" , 
+        "hireDate" : "2026-03-01" , 
+        "email" : "matter@gmaill.net" , 
+        "phoneNumber" : "+0123456789"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
